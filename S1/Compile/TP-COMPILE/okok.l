@@ -1,16 +1,15 @@
 %{
     #include <string.h>
-    #include "testb.tab.h"
+   
     #include <stdlib.h>
-    #define YYSTYPE char*
+   
 	
-    extern YYSTYPE yyval;
     int l=1,c=0;
 %}
 
 t [ \t]
 S [\n]
-IDF [a-z]+
+idf [a-z]+
 entier [0-9]+
 reel [0-9]+\.[0-9]*|\.[0-9]+
 pvirg ";"
@@ -28,28 +27,11 @@ parfer ")"
 inf "<"
 sup ">"
 div "/"
-egal "="
 
 %%
 
 
-{idf} {
-	if(yyleng<=12)
-	{
-		c = c + yyleng;
-		if (strcmp(yytext,"Const")==0) return Const;
-		else  {
-	               
-            	 return idf;
-	}
-	}
-	else
-	{
-		printf("Erreur ligne %d colonne %d  --->  ",l,c);
-		
-		printf("\n");
-		exit(0);
-	}
+{idf} { printf("caca");
       }
 
 {entier} {
@@ -84,12 +66,9 @@ egal "="
 {accoouv} {c++;return accoouv;}
 {egal} {c++;return egal;}
 
-. {
-	printf("Erreur ligne %d colonne %d  entite %s--->  ",l,c,yytext);
-	printf("\n\n");
-	exit(0);
+. {printf("Erreur ligne %d colonne %d  entite %s--->  ",l,c,yytext);printf("\n\n");}
+
 %%
-int yywrap()
-{   
-    return 0;
-}
+
+
+    int
