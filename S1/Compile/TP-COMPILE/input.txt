@@ -1,3 +1,32 @@
-algo 12 wassil
-15
-15.2
+#Calcul
+#TAB
+#PROG{
+Real :: Ahuik ;
+Real :: Ahfuik , Join ;
+Integer :: Const Augtf=4521 ;
+Real :: Tab[ 25 ] ;
+
+Ayuh=15 ;
+Ghjy=42*96/85 ;
+Tahyg[253] = Ahuj+23 ;
+While(AAghu < 52){
+Adhy = 45 ;
+}
+While(AAghu < 52){
+		While(AAghu < 52){
+Adhy = 45 ;
+}
+Adhy = 45 ;
+}
+Execute
+Alger = 16 ;
+		Execute
+	Alger = 16 ;
+	IF(12.56 == 25)
+	While(Aze <= 445 ){
+	Adr=Rht+63/85 ;	
+	}
+IF(12.56 == Akij)
+}
+
+

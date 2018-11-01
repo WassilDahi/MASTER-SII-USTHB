@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_TESTB_TAB_H_INCLUDED
-# define YY_YY_TESTB_TAB_H_INCLUDED
+#ifndef YY_YY_PROJET_TAB_H_INCLUDED
+# define YY_YY_PROJET_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -48,22 +48,42 @@ extern int yydebug;
     idf = 258,
     entier = 259,
     reel = 260,
-    virg = 261,
-    pvirg = 262,
-    Integ = 263,
-    real = 264,
-    accoouv = 265,
-    accofer = 266,
-    bfor = 267,
-    plus = 268,
-    egal = 269,
-    moins = 270,
-    parfer = 271,
-    parouv = 272,
-    inf = 273,
-    sup = 274,
-    division = 275,
-    s = 276
+    Real = 261,
+    Integer = 262,
+    aco = 263,
+    acf = 264,
+    VIR = 265,
+    PVT = 266,
+    Const = 267,
+    CrochO = 268,
+    CrochF = 269,
+    eg = 270,
+    ADD = 271,
+    SUS = 272,
+    MUL = 273,
+    DIV = 274,
+    pthO = 275,
+    pthF = 276,
+    ptpt = 277,
+    afc = 278,
+    INF = 279,
+    SUP = 280,
+    PointP = 281,
+    Diaz = 282,
+    TAB = 283,
+    BOUCLE = 284,
+    INFEG = 285,
+    SUPEG = 286,
+    DIFF = 287,
+    OR = 288,
+    AND = 289,
+    NEG = 290,
+    While = 291,
+    Execute = 292,
+    IF = 293,
+    Comment = 294,
+    Sep = 295,
+    Calcul = 296
   };
 #endif
 
@@ -72,12 +92,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "testb.y" /* yacc.c:1909  */
+#line 9 "projet.y" /* yacc.c:1909  */
 
 char *nom;
 int ent;
 
-#line 81 "testb.tab.h" /* yacc.c:1909  */
+
+#line 102 "projet.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -90,4 +111,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_TESTB_TAB_H_INCLUDED  */
+#endif /* !YY_YY_PROJET_TAB_H_INCLUDED  */
