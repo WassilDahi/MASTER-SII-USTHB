@@ -534,9 +534,9 @@ int yy_flex_debug = 1;
 
 static const flex_int16_t yy_rule_linenum[22] =
     {   0,
-       35,   54,   67,   68,   69,   70,   71,   72,   73,   74,
-       75,   76,   77,   78,   79,   80,   81,   82,   83,   84,
-       86
+       38,   40,   55,   56,   57,   58,   59,   61,   62,   63,
+       64,   65,   66,   67,   68,   69,   70,   71,   72,   73,
+       75
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -549,15 +549,16 @@ static const flex_int16_t yy_rule_linenum[22] =
 char *yytext;
 #line 1 "test.l"
 #line 2 "test.l"
-    #include <string.h>
-    #include "testb.tab.h"
+	#include <stdio.h>
     #include <stdlib.h>
-    #define YYSTYPE char*
+	#include <string.h>
+	#include "testb.tab.h"
 	
-    extern YYSTYPE yyval;
+    extern YYSTYPE yylval;
     int l=1,c=0;
 #line 560 "lex.yy.c"
-#line 561 "lex.yy.c"
+#define YY_NO_INPUT 1
+#line 562 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -634,8 +635,6 @@ extern int yywrap ( void );
 
 /* %not-for-header */
 #ifndef YY_NO_UNPUT
-    
-    static void yyunput ( int c, char *buf_ptr  );
     
 #endif
 /* %ok-for-header */
@@ -837,11 +836,11 @@ YY_DECL
 
 	{
 /* %% [7.0] user's declarations go here */
-#line 32 "test.l"
+#line 35 "test.l"
 
 
 
-#line 845 "lex.yy.c"
+#line 844 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -923,30 +922,14 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 35 "test.l"
-{
-	if(yyleng<=12)
-	{
-		c = c + yyleng;
-		if (strcmp(yytext,"Const")==0) return Const;
-		else  {
-	               
-            	 return idf;
-	}
-	}
-	else
-	{
-		printf("Erreur ligne %d colonne %d  --->  ",l,c);
-		
-		printf("\n");
-		exit(0);
-	}
-      }
+#line 38 "test.l"
+{c=c+yyleng;return idf;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 54 "test.l"
+#line 40 "test.l"
 {
+			
 		if ( atoi(yytext) >32767)
 		{
 			printf("Erreur ligne %d colonne %d  --->  ",l,c);
@@ -957,102 +940,103 @@ YY_RULE_SETUP
 		{	
 			c = c + yyleng;
 			return entier;
-		}}
+		}
+}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 67 "test.l"
+#line 55 "test.l"
 {c=c+yyleng;return reel;}
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 68 "test.l"
+#line 56 "test.l"
 {l++;c=0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 69 "test.l"
+#line 57 "test.l"
 {c=c+yyleng;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 70 "test.l"
+#line 58 "test.l"
 {c++;return virg;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 71 "test.l"
+#line 59 "test.l"
 {c++;return pvirg;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 72 "test.l"
-{c++;return plus;}
+#line 61 "test.l"
+{c++; return plus;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 73 "test.l"
+#line 62 "test.l"
 {c++;return moins;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 74 "test.l"
-{c=c+3; return for;}
+#line 63 "test.l"
+{c=c+3; return bfor;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 75 "test.l"
+#line 64 "test.l"
 {c++; return inf;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 76 "test.l"
+#line 65 "test.l"
 {c++; return sup;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 77 "test.l"
-{c++; return div;}
+#line 66 "test.l"
+{c++; return division;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 78 "test.l"
+#line 67 "test.l"
 {c++;return parouv;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 79 "test.l"
+#line 68 "test.l"
 {c++; return parfer;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 80 "test.l"
+#line 69 "test.l"
 {c=c+4;return real;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 81 "test.l"
-{c=c+3;return int;}
+#line 70 "test.l"
+{c=c+3;return Integ;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 82 "test.l"
+#line 71 "test.l"
 {c++;return accofer;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 83 "test.l"
+#line 72 "test.l"
 {c++;return accoouv;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 84 "test.l"
+#line 73 "test.l"
 {c++;return egal;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 86 "test.l"
+#line 75 "test.l"
 {
 	printf("Erreur ligne %d colonne %d  entite %s--->  ",l,c,yytext);
 	printf("\n\n");
@@ -1060,10 +1044,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 91 "test.l"
+#line 80 "test.l"
 ECHO;
 	YY_BREAK
-#line 1067 "lex.yy.c"
+#line 1051 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1426,49 +1410,6 @@ static int yy_get_next_buffer (void)
 }
 
 #ifndef YY_NO_UNPUT
-/* %if-c-only */
-
-    static void yyunput (int c, char * yy_bp )
-/* %endif */
-/* %if-c++-only */
-/* %endif */
-{
-	char *yy_cp;
-    
-    yy_cp = (yy_c_buf_p);
-
-	/* undo effects of setting up yytext */
-	*yy_cp = (yy_hold_char);
-
-	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-		{ /* need to shift things up to make room */
-		/* +2 for EOB chars. */
-		int number_to_move = (yy_n_chars) + 2;
-		char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
-					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
-		char *source =
-				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
-
-		while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
-			*--dest = *--source;
-
-		yy_cp += (int) (dest - source);
-		yy_bp += (int) (dest - source);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars =
-			(yy_n_chars) = (int) YY_CURRENT_BUFFER_LVALUE->yy_buf_size;
-
-		if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-			YY_FATAL_ERROR( "flex scanner push-back overflow" );
-		}
-
-	*--yy_cp = (char) c;
-
-/* %% [18.0] update yylineno here */
-
-	(yytext_ptr) = yy_bp;
-	(yy_hold_char) = *yy_cp;
-	(yy_c_buf_p) = yy_cp;
-}
 /* %if-c-only */
 
 /* %endif */
@@ -2212,7 +2153,7 @@ void yyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 91 "test.l"
+#line 80 "test.l"
 
 
 int yywrap(){

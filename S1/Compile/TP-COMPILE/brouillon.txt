@@ -8,12 +8,13 @@ fichier bison.y
 
 structure dyalou:
     //3 parties.
+    
     Partie 1:
 
         extern FILE yyins;
         extern pour les variables;
         extern yylvale , yystype;
-        /*dans le flex */ idf {yylval=(yystype)yytext}
+        /*dans le flex */ idf {yylval=(YYSTYPE)yytext}
 
         %{les includes (code c)
         %Token idf .....etc
