@@ -1,0 +1,47 @@
+// Boucle infinie erreur recursivité 
+// Analyse ascendante et doit etre LALR
+// epsilon = blanc ( faire attention)
+// dans le partie 1 de flex : 
+    #include "bison.tab.h"
+
+fichier bison.y
+
+structure dyalou:
+    //3 parties.
+    Partie 1:
+
+        extern FILE yyins;
+        extern pour les variables;
+        extern yylvale , yystype;
+        /*dans le flex */ idf {yylval=(yystype)yytext}
+
+        %{les includes (code c)
+        %Token idf .....etc
+        ( on les récuperes de la 2eme partie du fichier flex) exemple:(return idf;
+        )
+        %token
+        %}
+
+
+    Partie 2: La grammaire
+        %%
+            nonterminal : idf|  |  | ; 
+
+
+        %%
+
+        int yyerror(message)
+        {   printf("%s",message);
+            return 0;
+        }
+    Partie 3: MAIN() // on supprime le main de flex et on le met ici et on met yywrap()
+        main()
+        {
+            // ouverture de fichier 
+            si tout va bien >>> lancer yyparse();
+        }
+
+
+flex tpl.l
+bison -d tpb.y
+gcc yylex.c tpb.tab.c -o tp
