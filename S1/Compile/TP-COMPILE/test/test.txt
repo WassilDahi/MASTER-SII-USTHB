@@ -1,4 +1,4 @@
-INT ab,cf,d;
+INT ab,cf,d; 
 REAL k,cc,ab;
 
 {

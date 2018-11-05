@@ -73,9 +73,10 @@ division "/"
 {egal} {c++;return egal;}
 
 . {
-	printf("Erreur ligne %d colonne %d  entite %s--->  ",l,c,yytext);
+	printf("Erreur ligne %d colonne %d  entite %s --->  ",l,c,yytext);
 	printf("\n\n");
-	exit(0);}
+	exit(0);
+	}
 
 %%
 
