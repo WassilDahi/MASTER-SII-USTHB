@@ -52,6 +52,8 @@ division "/"
 		}
 }
 
+
+
 {reel} {c=c+yyleng;return reel;}
 {s} {l++;c=0;}
 {t} {c=c+yyleng;}
@@ -71,6 +73,7 @@ division "/"
 {accofer} {c++;return accofer;}
 {accoouv} {c++;return accoouv;}
 {egal} {c++;return egal;}
+
 
 . {
 	printf("Erreur ligne %d colonne %d  entite %s --->  ",l,c,yytext);

@@ -1,0 +1,552 @@
+systemd(1)-+-systemd-journal(363)
+           |-systemd-udevd(390)
+           |-lvmetad(397)
+           |-systemd-timesyn(1078)---{systemd-timesyn}(1189)
+           |-systemd-resolve(1081)
+           |-systemd-logind(1244)
+           |-ModemManager(1248)-+-{ModemManager}(1273)
+           |                    `-{ModemManager}(1359)
+           |-thermald(1250)---{thermald}(1579)
+           |-accounts-daemon(1252)-+-{accounts-daemon}(1287)
+           |                       `-{accounts-daemon}(1360)
+           |-bluetoothd(1260)
+           |-cron(1290)
+           |-udisksd(1293)-+-{udisksd}(1341)
+           |               |-{udisksd}(1365)
+           |               |-{udisksd}(1690)
+           |               `-{udisksd}(1707)
+           |-networkd-dispat(1298)---{networkd-dispat}(1719)
+           |-avahi-daemon(1299)---avahi-daemon(1350)
+           |-dbus-daemon(1300)
+           |-wpa_supplicant(1361)
+           |-irqbalance(1367)---{irqbalance}(1407)
+           |-NetworkManager(1374)-+-{NetworkManager}(1764)
+           |                      |-{NetworkManager}(1767)
+           |                      `-dhclient(22470)
+           |-rsyslogd(1378)-+-{rsyslogd}(1583)
+           |                |-{rsyslogd}(1584)
+           |                `-{rsyslogd}(1585)
+           |-acpid(1428)
+           |-snapd(1431)-+-{snapd}(1758)
+           |             |-{snapd}(1759)
+           |             |-{snapd}(1760)
+           |             |-{snapd}(1761)
+           |             |-{snapd}(1878)
+           |             |-{snapd}(1910)
+           |             |-{snapd}(1911)
+           |             |-{snapd}(1925)
+           |             |-{snapd}(3512)
+           |             `-{snapd}(3513)
+           |-polkitd(1456)-+-{polkitd}(1513)
+           |               `-{polkitd}(1519)
+           |-colord(1729)-+-{colord}(1740)
+           |              `-{colord}(1744)
+           |-libvirtd(1786)-+-{libvirtd}(1887)
+           |                |-{libvirtd}(1888)
+           |                |-{libvirtd}(1889)
+           |                |-{libvirtd}(1890)
+           |                |-{libvirtd}(1891)
+           |                |-{libvirtd}(1892)
+           |                |-{libvirtd}(1893)
+           |                |-{libvirtd}(1894)
+           |                |-{libvirtd}(1895)
+           |                |-{libvirtd}(1896)
+           |                |-{libvirtd}(1987)
+           |                |-{libvirtd}(1988)
+           |                |-{libvirtd}(1989)
+           |                |-{libvirtd}(1990)
+           |                |-{libvirtd}(1991)
+           |                `-{libvirtd}(2037)
+           |-gdm3(1833)-+-{gdm3}(1849)
+           |            |-{gdm3}(1852)
+           |            |-gdm-session-wor(1866)-+-{gdm-session-wor}(1867)
+           |            |                       |-{gdm-session-wor}(1868)
+           |            |                       `-gdm-wayland-ses(2023)-+-{gdm-wayland-ses}(2024)
+           |            |                                               |-{gdm-wayland-ses}(2041)
+           |            |                                               `-gnome-session-b(2042)-+-{gnome-session-b}(2053)
+           |            |                                                                       |-{gnome-session-b}(2054)
+           |            |                                                                       |-{gnome-session-b}(2062)
+           |            |                                                                       |-gnome-shell(2064)-+-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-Xwayland(2214+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   |-{gnome-shell}+
+           |            |                                                                       |                   `-ibus-daemon(2+
+           |            |                                                                       |-gsd-xsettings(2431)-+-{gsd-xsetti+
+           |            |                                                                       |                     |-{gsd-xsetti+
+           |            |                                                                       |                     `-{gsd-xsetti+
+           |            |                                                                       |-gsd-a11y-settin(2432)-+-{gsd-a11y+
+           |            |                                                                       |                       |-{gsd-a11y+
+           |            |                                                                       |                       `-{gsd-a11y+
+           |            |                                                                       |-gsd-clipboard(2434)-+-{gsd-clipbo+
+           |            |                                                                       |                     `-{gsd-clipbo+
+           |            |                                                                       |-gsd-color(2435)-+-{gsd-color}(263+
+           |            |                                                                       |                 |-{gsd-color}(263+
+           |            |                                                                       |                 `-{gsd-color}(263+
+           |            |                                                                       |-gsd-datetime(2442)-+-{gsd-datetim+
+           |            |                                                                       |                    `-{gsd-datetim+
+           |            |                                                                       |-gsd-housekeepin(2445)-+-{gsd-hous+
+           |            |                                                                       |                       `-{gsd-hous+
+           |            |                                                                       |-gsd-keyboard(2446)-+-{gsd-keyboar+
+           |            |                                                                       |                    |-{gsd-keyboar+
+           |            |                                                                       |                    `-{gsd-keyboar+
+           |            |                                                                       |-gsd-media-keys(2450)-+-{gsd-media+
+           |            |                                                                       |                      |-{gsd-media+
+           |            |                                                                       |                      `-{gsd-media+
+           |            |                                                                       |-gsd-mouse(2451)-+-{gsd-mouse}(245+
+           |            |                                                                       |                 `-{gsd-mouse}(245+
+           |            |                                                                       |-gsd-power(2452)-+-{gsd-power}(263+
+           |            |                                                                       |                 |-{gsd-power}(264+
+           |            |                                                                       |                 |-{gsd-power}(264+
+           |            |                                                                       |                 `-{gsd-power}(353+
+           |            |                                                                       |-gsd-print-notif(2455)-+-{gsd-prin+
+           |            |                                                                       |                       `-{gsd-prin+
+           |            |                                                                       |-gsd-rfkill(2457)-+-{gsd-rfkill}(2+
+           |            |                                                                       |                  `-{gsd-rfkill}(2+
+           |            |                                                                       |-gsd-screensaver(2460)-+-{gsd-scre+
+           |            |                                                                       |                       `-{gsd-scre+
+           |            |                                                                       |-gsd-sharing(2466)-+-{gsd-sharing}+
+           |            |                                                                       |                   |-{gsd-sharing}+
+           |            |                                                                       |                   `-{gsd-sharing}+
+           |            |                                                                       |-gsd-smartcard(2469)-+-{gsd-smartc+
+           |            |                                                                       |                     |-{gsd-smartc+
+           |            |                                                                       |                     |-{gsd-smartc+
+           |            |                                                                       |                     `-{gsd-smartc+
+           |            |                                                                       |-gsd-sound(2478)-+-{gsd-sound}(248+
+           |            |                                                                       |                 |-{gsd-sound}(248+
+           |            |                                                                       |                 `-{gsd-sound}(249+
+           |            |                                                                       `-gsd-wacom(2479)-+-{gsd-wacom}(263+
+           |            |                                                                                         `-{gsd-wacom}(263+
+           |            `-gdm-session-wor(2786)-+-{gdm-session-wor}(2787)
+           |                                    |-{gdm-session-wor}(2788)
+           |                                    `-gdm-x-session(2809)-+-{gdm-x-session}(2810)
+           |                                                          |-Xorg(2811)---{Xorg}(2816)
+           |                                                          |-{gdm-x-session}(2818)
+           |                                                          `-gnome-session-b(2820)-+-ssh-agent(2917)
+           |                                                                                  |-{gnome-session-b}(2930)
+           |                                                                                  |-{gnome-session-b}(2931)
+           |                                                                                  |-{gnome-session-b}(2933)
+           |                                                                                  |-gnome-shell(2943)-+-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-{gnome-shell}(2+
+           |                                                                                  |                   |-ibus-daemon(298+
+           |                                                                                  |                   |-evince(11832)-++
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               `+
+           |                                                                                  |                   |-oosplash(20859)+
+           |                                                                                  |                   |-chrome(22568)-++
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               |+
+           |                                                                                  |                   |               `+
+           |                                                                                  |                   |-Telegram(25781)+
+           |                                                                                  |                   `-flatpak-bwrap(2+
+           |                                                                                  |-gsd-power(3078)-+-{gsd-power}(3100)
+           |                                                                                  |                 |-{gsd-power}(3104)
+           |                                                                                  |                 |-{gsd-power}(3182)
+           |                                                                                  |                 `-{gsd-power}(3531)
+           |                                                                                  |-gsd-print-notif(3080)-+-{gsd-print-+
+           |                                                                                  |                       `-{gsd-print-+
+           |                                                                                  |-gsd-rfkill(3089)-+-{gsd-rfkill}(309+
+           |                                                                                  |                  `-{gsd-rfkill}(309+
+           |                                                                                  |-gsd-screensaver(3090)-+-{gsd-screen+
+           |                                                                                  |                       `-{gsd-screen+
+           |                                                                                  |-gsd-sharing(3093)-+-{gsd-sharing}(3+
+           |                                                                                  |                   |-{gsd-sharing}(3+
+           |                                                                                  |                   `-{gsd-sharing}(3+
+           |                                                                                  |-gsd-smartcard(3098)-+-{gsd-smartcar+
+           |                                                                                  |                     |-{gsd-smartcar+
+           |                                                                                  |                     |-{gsd-smartcar+
+           |                                                                                  |                     `-{gsd-smartcar+
+           |                                                                                  |-gsd-xsettings(3107)-+-{gsd-xsetting+
+           |                                                                                  |                     |-{gsd-xsetting+
+           |                                                                                  |                     `-{gsd-xsetting+
+           |                                                                                  |-gsd-wacom(3119)-+-{gsd-wacom}(3128)
+           |                                                                                  |                 `-{gsd-wacom}(3129)
+           |                                                                                  |-gsd-sound(3125)-+-{gsd-sound}(3127)
+           |                                                                                  |                 |-{gsd-sound}(3130)
+           |                                                                                  |                 `-{gsd-sound}(3157)
+           |                                                                                  |-gsd-a11y-settin(3132)-+-{gsd-a11y-s+
+           |                                                                                  |                       |-{gsd-a11y-s+
+           |                                                                                  |                       `-{gsd-a11y-s+
+           |                                                                                  |-gsd-clipboard(3133)-+-{gsd-clipboar+
+           |                                                                                  |                     `-{gsd-clipboar+
+           |                                                                                  |-gsd-color(3136)-+-{gsd-color}(3146)
+           |                                                                                  |                 |-{gsd-color}(3147)
+           |                                                                                  |                 `-{gsd-color}(3148)
+           |                                                                                  |-gsd-datetime(3137)-+-{gsd-datetime}+
+           |                                                                                  |                    |-{gsd-datetime}+
+           |                                                                                  |                    `-{gsd-datetime}+
+           |                                                                                  |-gsd-housekeepin(3138)-+-{gsd-housek+
+           |                                                                                  |                       |-{gsd-housek+
+           |                                                                                  |                       `-{gsd-housek+
+           |                                                                                  |-gsd-keyboard(3141)-+-{gsd-keyboard}+
+           |                                                                                  |                    |-{gsd-keyboard}+
+           |                                                                                  |                    `-{gsd-keyboard}+
+           |                                                                                  |-gsd-media-keys(3144)-+-{gsd-media-k+
+           |                                                                                  |                      |-{gsd-media-k+
+           |                                                                                  |                      |-{gsd-media-k+
+           |                                                                                  |                      `-{gsd-media-k+
+           |                                                                                  |-gsd-mouse(3150)-+-{gsd-mouse}(3152)
+           |                                                                                  |                 |-{gsd-mouse}(3176)
+           |                                                                                  |                 `-{gsd-mouse}(3191)
+           |                                                                                  |-gsd-disk-utilit(3201)-+-{gsd-disk-u+
+           |                                                                                  |                       `-{gsd-disk-u+
+           |                                                                                  |-nautilus-deskto(3202)-+-{nautilus-d+
+           |                                                                                  |                       |-{nautilus-d+
+           |                                                                                  |                       |-{nautilus-d+
+           |                                                                                  |                       |-{nautilus-d+
+           |                                                                                  |                       |-{nautilus-d+
+           |                                                                                  |                       |-{nautilus-d+
+           |                                                                                  |                       `-{nautilus-d+
+           |                                                                                  |-update-notifier(3442)-+-{update-not+
+           |                                                                                  |                       |-{update-not+
+           |                                                                                  |                       `-{update-not+
+           |                                                                                  |-gnome-software(3445)-+-{gnome-softw+
+           |                                                                                  |                      |-{gnome-softw+
+           |                                                                                  |                      `-{gnome-softw+
+           |                                                                                  `-deja-dup-monito(3691)-+-{deja-dup-m+
+           |                                                                                                          |-{deja-dup-m+
+           |                                                                                                          `-{deja-dup-m+
+           |-systemd(1955)-+-(sd-pam)(1956)
+           |               |-dbus-daemon(2025)
+           |               |-at-spi-bus-laun(2222)-+-{at-spi-bus-laun}(2223)
+           |               |                       |-{at-spi-bus-laun}(2224)
+           |               |                       |-{at-spi-bus-laun}(2226)
+           |               |                       `-dbus-daemon(2227)
+           |               |-at-spi2-registr(2229)-+-{at-spi2-registr}(2230)
+           |               |                       `-{at-spi2-registr}(2231)
+           |               |-pulseaudio(2233)-+-{pulseaudio}(2248)
+           |               |                  `-{pulseaudio}(2249)
+           |               |-xdg-permission-(2346)-+-{xdg-permission-}(2347)
+           |               |                       `-{xdg-permission-}(2349)
+           |               `-ibus-portal(2362)-+-{ibus-portal}(2363)
+           |                                   `-{ibus-portal}(2365)
+           |-upowerd(2143)-+-{upowerd}(2162)
+           |               `-{upowerd}(2164)
+           |-dnsmasq(2176)---dnsmasq(2177)
+           |-rtkit-daemon(2234)-+-{rtkit-daemon}(2245)
+           |                    `-{rtkit-daemon}(2246)
+           |-whoopsie(2262)-+-{whoopsie}(2310)
+           |                `-{whoopsie}(2311)
+           |-dockerd(2264)-+-{dockerd}(2315)
+           |               |-{dockerd}(2316)
+           |               |-{dockerd}(2317)
+           |               |-{dockerd}(2318)
+           |               |-{dockerd}(2321)
+           |               |-{dockerd}(2322)
+           |               |-{dockerd}(2324)
+           |               |-docker-containe(2337)-+-{docker-containe}(2370)
+           |               |                       |-{docker-containe}(2371)
+           |               |                       |-{docker-containe}(2372)
+           |               |                       |-{docker-containe}(2373)
+           |               |                       |-{docker-containe}(2374)
+           |               |                       |-{docker-containe}(2375)
+           |               |                       |-{docker-containe}(2376)
+           |               |                       |-{docker-containe}(2377)
+           |               |                       |-{docker-containe}(2384)
+           |               |                       |-{docker-containe}(2385)
+           |               |                       |-{docker-containe}(2746)
+           |               |                       |-{docker-containe}(3380)
+           |               |                       |-{docker-containe}(3897)
+           |               |                       |-{docker-containe}(4311)
+           |               |                       |-{docker-containe}(5811)
+           |               |                       |-{docker-containe}(6415)
+           |               |                       `-{docker-containe}(12126)
+           |               |-{dockerd}(2343)
+           |               |-{dockerd}(2386)
+           |               |-{dockerd}(2387)
+           |               |-{dockerd}(2388)
+           |               |-{dockerd}(2389)
+           |               |-{dockerd}(2393)
+           |               |-{dockerd}(2456)
+           |               |-{dockerd}(3863)
+           |               |-{dockerd}(4131)
+           |               `-{dockerd}(17677)
+           |-kerneloops(2275)
+           |-kerneloops(2285)
+           |-ibus-x11(2358)-+-{ibus-x11}(2625)
+           |                `-{ibus-x11}(2626)
+           |-boltd(2414)-+-{boltd}(2438)
+           |             `-{boltd}(2440)
+           |-packagekitd(2420)-+-{packagekitd}(2472)
+           |                   `-{packagekitd}(2473)
+           |-systemd(2791)-+-(sd-pam)(2792)
+           |               |-dbus-daemon(2817)
+           |               |-at-spi-bus-laun(2919)-+-{at-spi-bus-laun}(2920)
+           |               |                       |-{at-spi-bus-laun}(2921)
+           |               |                       |-{at-spi-bus-laun}(2923)
+           |               |                       `-dbus-daemon(2924)
+           |               |-at-spi2-registr(2926)-+-{at-spi2-registr}(2928)
+           |               |                       `-{at-spi2-registr}(2929)
+           |               |-gvfsd(2949)-+-{gvfsd}(2950)
+           |               |             |-{gvfsd}(2951)
+           |               |             |-gvfsd-trash(3267)-+-{gvfsd-trash}(3268)
+           |               |             |                   `-{gvfsd-trash}(3269)
+           |               |             |-gvfsd-network(29181)-+-{gvfsd-network}(29206)
+           |               |             |                      |-{gvfsd-network}(29208)
+           |               |             |                      `-{gvfsd-network}(29216)
+           |               |             `-gvfsd-dnssd(29249)-+-{gvfsd-dnssd}(29250)
+           |               |                                  `-{gvfsd-dnssd}(29251)
+           |               |-gvfsd-fuse(2954)-+-{gvfsd-fuse}(2958)
+           |               |                  |-{gvfsd-fuse}(2959)
+           |               |                  |-{gvfsd-fuse}(2960)
+           |               |                  |-{gvfsd-fuse}(2961)
+           |               |                  `-{gvfsd-fuse}(2962)
+           |               |-ibus-portal(2990)-+-{ibus-portal}(2993)
+           |               |                   `-{ibus-portal}(2996)
+           |               |-xdg-permission-(3001)-+-{xdg-permission-}(3002)
+           |               |                       `-{xdg-permission-}(3004)
+           |               |-gnome-shell-cal(3006)-+-{gnome-shell-cal}(3027)
+           |               |                       |-{gnome-shell-cal}(3029)
+           |               |                       |-{gnome-shell-cal}(3042)
+           |               |                       |-{gnome-shell-cal}(3043)
+           |               |                       `-{gnome-shell-cal}(3243)
+           |               |-gvfs-udisks2-vo(3024)-+-{gvfs-udisks2-vo}(3025)
+           |               |                       `-{gvfs-udisks2-vo}(3026)
+           |               |-evolution-sourc(3031)-+-{evolution-sourc}(3032)
+           |               |                       |-{evolution-sourc}(3033)
+           |               |                       `-{evolution-sourc}(3034)
+           |               |-gvfs-goa-volume(3036)-+-{gvfs-goa-volume}(3037)
+           |               |                       `-{gvfs-goa-volume}(3038)
+           |               |-goa-daemon(3040)-+-{goa-daemon}(3044)
+           |               |                  |-{goa-daemon}(3046)
+           |               |                  `-{goa-daemon}(3047)
+           |               |-goa-identity-se(3050)-+-{goa-identity-se}(3051)
+           |               |                       |-{goa-identity-se}(3052)
+           |               |                       `-{goa-identity-se}(3053)
+           |               |-gvfs-afc-volume(3055)-+-{gvfs-afc-volume}(3056)
+           |               |                       |-{gvfs-afc-volume}(3057)
+           |               |                       `-{gvfs-afc-volume}(3059)
+           |               |-gvfs-gphoto2-vo(3060)-+-{gvfs-gphoto2-vo}(3061)
+           |               |                       `-{gvfs-gphoto2-vo}(3063)
+           |               |-gvfs-mtp-volume(3064)-+-{gvfs-mtp-volume}(3065)
+           |               |                       `-{gvfs-mtp-volume}(3067)
+           |               |-evolution-calen(3244)-+-{evolution-calen}(3289)
+           |               |                       |-{evolution-calen}(3290)
+           |               |                       |-{evolution-calen}(3295)
+           |               |                       |-{evolution-calen}(3296)
+           |               |                       `-evolution-calen(3299)-+-{evolution-calen}(3300)
+           |               |                                               |-{evolution-calen}(3301)
+           |               |                                               |-{evolution-calen}(3302)
+           |               |                                               |-{evolution-calen}(3303)
+           |               |                                               |-{evolution-calen}(3306)
+           |               |                                               |-{evolution-calen}(3307)
+           |               |                                               |-{evolution-calen}(3309)
+           |               |                                               `-{evolution-calen}(3311)
+           |               |-dconf-service(3292)-+-{dconf-service}(3293)
+           |               |                     `-{dconf-service}(3294)
+           |               |-evolution-addre(3312)-+-{evolution-addre}(3315)
+           |               |                       |-{evolution-addre}(3316)
+           |               |                       |-{evolution-addre}(3317)
+           |               |                       |-{evolution-addre}(3318)
+           |               |                       `-evolution-addre(3330)-+-{evolution-addre}(3331)
+           |               |                                               |-{evolution-addre}(3333)
+           |               |                                               |-{evolution-addre}(3334)
+           |               |                                               |-{evolution-addre}(3335)
+           |               |                                               `-{evolution-addre}(3338)
+           |               |-gvfsd-metadata(3344)-+-{gvfsd-metadata}(3345)
+           |               |                      `-{gvfsd-metadata}(3346)
+           |               |-zeitgeist-daemo(3656)-+-{zeitgeist-daemo}(3657)
+           |               |                       `-{zeitgeist-daemo}(3658)
+           |               |-zeitgeist-fts(3664)-+-{zeitgeist-fts}(3665)
+           |               |                     `-{zeitgeist-fts}(3666)
+           |               |-gconfd-2(3723)
+           |               |-snap(10830)-+-{snap}(8405)
+           |               |             |-{snap}(10836)
+           |               |             |-{snap}(10837)
+           |               |             |-{snap}(10838)
+           |               |             |-{snap}(10839)
+           |               |             |-{snap}(10840)
+           |               |             `-{snap}(10841)
+           |               |-evinced(11860)-+-{evinced}(11861)
+           |               |                `-{evinced}(11862)
+           |               |-code(12579)-+-{code}(12581)
+           |               |             |-code(12582)-+-code(12629)-+-{code}(12630)
+           |               |             |             |             |-{code}(12631)
+           |               |             |             |             |-{code}(12634)
+           |               |             |             |             |-{code}(12635)
+           |               |             |             |             |-{code}(12636)
+           |               |             |             |             |-{code}(12637)
+           |               |             |             |             |-{code}(12638)
+           |               |             |             |             |-{code}(12639)
+           |               |             |             |             |-{code}(12642)
+           |               |             |             |             |-{code}(12644)
+           |               |             |             |             |-{code}(12645)
+           |               |             |             |             |-{code}(12646)
+           |               |             |             |             |-{code}(12647)
+           |               |             |             |             |-{code}(12652)
+           |               |             |             |             |-{code}(12653)
+           |               |             |             |             |-{code}(12654)
+           |               |             |             |             |-code(12655)-+-{code}(12656)
+           |               |             |             |             |             |-{code}(12657)
+           |               |             |             |             |             |-{code}(12658)
+           |               |             |             |             |             |-{code}(12659)
+           |               |             |             |             |             |-{code}(12661)
+           |               |             |             |             |             |-{code}(12662)
+           |               |             |             |             |             |-{code}(12663)
+           |               |             |             |             |             |-{code}(12664)
+           |               |             |             |             |             |-{code}(12682)
+           |               |             |             |             |             |-{code}(12683)
+           |               |             |             |             |             |-{code}(12690)
+           |               |             |             |             |             |-{code}(12691)
+           |               |             |             |             |             |-Microsoft.VSCod(12694)-+-{Microsoft.VSCod}(126+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(126+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(126+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(126+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(126+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-Microsoft.VSCod(12738+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(127+
+           |               |             |             |             |             |                        |-Microsoft.VSCod(13192+
+           |               |             |             |             |             |                        |-{Microsoft.VSCod}(131+
+           |               |             |             |             |             |                        `-{Microsoft.VSCod}(132+
+           |               |             |             |             |             `-code(17343)-+-{code}(17346)
+           |               |             |             |             |                           |-{code}(17347)
+           |               |             |             |             |                           |-{code}(17348)
+           |               |             |             |             |                           `-{code}(17349)
+           |               |             |             |             |-{code}(24523)
+           |               |             |             |             `-{code}(24564)
+           |               |             |             `-code(12667)-+-{code}(12668)
+           |               |             |                           |-{code}(12669)
+           |               |             |                           |-{code}(12670)
+           |               |             |                           |-{code}(12671)
+           |               |             |                           |-{code}(12672)
+           |               |             |                           |-{code}(12673)
+           |               |             |                           |-{code}(12674)
+           |               |             |                           |-{code}(12675)
+           |               |             |                           |-{code}(12677)
+           |               |             |                           |-{code}(12678)
+           |               |             |                           |-{code}(12679)
+           |               |             |                           |-{code}(12680)
+           |               |             |                           |-{code}(12681)
+           |               |             |                           |-{code}(12685)
+           |               |             |                           |-{code}(12686)
+           |               |             |                           `-{code}(20217)
+           |               |             |-{code}(12583)
+           |               |             |-{code}(12584)
+           |               |             |-{code}(12586)
+           |               |             |-{code}(12587)
+           |               |             |-{code}(12588)
+           |               |             |-{code}(12589)
+           |               |             |-{code}(12590)
+           |               |             |-{code}(12591)
+           |               |             |-{code}(12592)
+           |               |             |-{code}(12594)
+           |               |             |-{code}(12595)
+           |               |             |-{code}(12596)
+           |               |             |-{code}(12597)
+           |               |             |-{code}(12600)
+           |               |             |-{code}(12601)
+           |               |             |-{code}(12602)
+           |               |             |-{code}(12603)
+           |               |             |-{code}(12606)
+           |               |             |-{code}(12607)
+           |               |             |-{code}(12608)
+           |               |             |-{code}(12609)
+           |               |             |-{code}(12610)
+           |               |             |-{code}(12611)
+           |               |             |-{code}(12612)
+           |               |             |-{code}(12613)
+           |               |             |-{code}(12614)
+           |               |             |-{code}(12615)
+           |               |             |-{code}(12621)
+           |               |             |-{code}(12627)
+           |               |             |-{code}(12689)
+           |               |             |-{code}(24344)
+           |               |             `-{code}(24728)
+           |               |-gnome-terminal-(21217)-+-{gnome-terminal-}(21218)
+           |               |                        |-{gnome-terminal-}(21219)
+           |               |                        |-{gnome-terminal-}(21220)
+           |               |                        |-bash(21226)
+           |               |                        |-bash(21274)-+-pstree(24734)
+           |               |                        |             `-less(24735)
+           |               |                        `-bash(23699)
+           |               |-nautilus(21238)-+-{nautilus}(21239)
+           |               |                 |-{nautilus}(21240)
+           |               |                 `-{nautilus}(21243)
+           |               |-flatpak-session(29474)-+-{flatpak-session}(29475)
+           |               |                        `-{flatpak-session}(29476)
+           |               |-xdg-document-po(29479)-+-{xdg-document-po}(29480)
+           |               |                        |-{xdg-document-po}(29481)
+           |               |                        |-{xdg-document-po}(29484)
+           |               |                        |-{xdg-document-po}(29486)
+           |               |                        `-{xdg-document-po}(29487)
+           |               |-xdg-desktop-por(31927)-+-{xdg-desktop-por}(24730)
+           |               |                        |-{xdg-desktop-por}(31929)
+           |               |                        |-{xdg-desktop-por}(31930)
+           |               |                        `-{xdg-desktop-por}(31932)
+           |               `-xdg-desktop-por(31933)-+-{xdg-desktop-por}(31935)
+           |                                        `-{xdg-desktop-por}(31936)
+           |-gnome-keyring-d(2805)-+-{gnome-keyring-d}(2806)
+           |                       |-{gnome-keyring-d}(2807)
+           |                       `-{gnome-keyring-d}(2941)
+           |-pulseaudio(2966)-+-{pulseaudio}(2967)
+           |                  `-{pulseaudio}(2968)
+           |-ibus-x11(2988)-+-{ibus-x11}(2999)
+           |                `-{ibus-x11}(3000)
+           |-gsd-printer(3179)-+-{gsd-printer}(3190)
+           |                   `-{gsd-printer}(3192)
+           |-fwupd(3465)-+-{fwupd}(3478)
+           |             |-{fwupd}(3479)
+           |             |-{fwupd}(3482)
+           |             `-{fwupd}(3486)
+           |-cupsd(17336)
+           |-cups-browsed(17337)-+-{cups-browsed}(17387)
+           |                     `-{cups-browsed}(17389)
+           `-flatpak-bwrap(29489)---flatpak-dbus-pr(29490)---{flatpak-dbus-pr}(29492)
