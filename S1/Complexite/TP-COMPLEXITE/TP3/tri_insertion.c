@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
     double debut , fin,tps ;
     double x;
   //  long long max={5*pow(10,4),pow(10,5),2*pow(10,5),4*pow(10,5),8*pow(10,5),1.6*pow(10,6),3.2*pow(10,6),6.4*pow(10,6),12.8*pow(10,4),25.6*pow(10,6),51.2*pow(10,6),1.024*pow(10,6),2.048*pow(10,6)},i=0;
-    long long max=50,i=0,j;
+    long long max=1000,i=0,j;
     
 
   tab=(int*)malloc(max*sizeof(int));
@@ -25,7 +25,7 @@ printf("\n");
     printf("------------- Creation du tableau ----------------\n");
     while(i<max)
     {
-        tab[i]=rand()% 200;
+        tab[i]=rand()% 20000;
        // printf("%d\t ",tab[i]);
         i++;
     }
