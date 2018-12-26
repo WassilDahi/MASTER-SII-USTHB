@@ -16,30 +16,33 @@ int main(int argc, char const *argv[])
     double debut , fin,tps ;
     double x;
   //  long long max={5*pow(10,4),pow(10,5),2*pow(10,5),4*pow(10,5),8*pow(10,5),1.6*pow(10,6),3.2*pow(10,6),6.4*pow(10,6),12.8*pow(10,4),25.6*pow(10,6),51.2*pow(10,6),1.024*pow(10,6),2.048*pow(10,6)},i=0;
-    long long max=6250,i=0,j;
+    long long max=3200000,i=0,j;
+/*6250	12500	25000	50000	100000	200000	400000	800000	1600000	3200000 6400000*/
+
     
 
   tab=(int*)malloc(max*sizeof(int));
-printf("\n");
 
-    printf("------------- Creation du tableau ----------------\n");
+
     while(i<max)
     {
-        tab[i]=rand()% 2000000;
+	tab[i]=max-i;
+        //tab[i]=rand()% 2000000;
        // printf("%d\t ",tab[i]);
         i++;
     }
-    printf("\n\n------------- Creation du tableau ---------------- Termine !\n");
+ 
 
-    i=0;
+    /*i=0;
 	     while(i<max)
 	    {
 		printf("%d  ",tab[i]);
     i++;
 	    }
+printf("\n\n");*/
 
 	debut = clock();
-    for(i=1;i<=max-1;i++)
+    for(i=0;i<=max-1;i++)
   {
       x=tab[i];
       j=i;
@@ -52,17 +55,17 @@ printf("\n");
   }
 	    fin=clock();
 
-	printf("\n\n");
-	i=0;
+	/*i=0;
 	     while(i<max)
 	    {
 		printf("%d  ",tab[i]);
     i++;
-	    }
-	printf("\n------------- Fin du tri par selection  ----------------\n");
+}*/
+	    
+	
 	    tps=(double)(fin-debut) / CLOCKS_PER_SEC ;
 
-	    printf("\n----------------------------------------------------------------------------------\ntps= %.02lf\n",tps);
+	    printf("\n--------n=%lld  tps= %lf\n",max,tps);
 
 
 return 0;

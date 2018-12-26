@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-void tourhanoi(int n, char *a, char *c ,char *b)
+long long nb=0;
+
+void tourhanoi(int n, int a, int c ,int b)
 {
- if (n==1)
+    
+ if (n>=1)
  {
-     return ;
- }
   tourhanoi(n-1,a,b,c);
-  printf("deplacer le disque restant de %d vers %d  \n",a,b);
+  nb++;
     tourhanoi(n-1,c,a,b);
- 
+ }
 }
 
 
@@ -18,8 +20,13 @@ int main(int argc, char const *argv[])
 {
 
 
+    double debut , fin,tps ;
 
-tourhanoi(n,"A","C","D");
+debut = clock();
+tourhanoi(5,1,2,3);
+fin=clock();
+tps=(double)(fin-debut) / CLOCKS_PER_SEC ;
+printf("nombre de deplacement = %lld , temps = %lf\n",nb,tps);
 
     return 0;
 }
